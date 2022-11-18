@@ -1,4 +1,8 @@
+FROM gradle:jdk8  AS builder
+WORKDIR /app
+COPY .  /app
+RUN ./gradlew clean build  -x test
+
 FROM openjdk:8-jdk-alpine
-ARG JAR_FILE
-COPY ${JAR_FILE} /usr/share/intranet_app_manager.jar
-ENTRYPOINT ["java","-jar","/usr/share/intranet_app_manager.jar"]
+COPY --from=builder /app/build/libs/intranet_app_manager*.jar /app.jar
+CMD ["java","-jar","/app.jar","-Dspring.config.location=/config.properties"]

@@ -45,12 +45,6 @@
 
 #### 安装教程
 
-项目使用 JAVA 开发，需要 JDK 1.8 运行环境，数据库使用的是 Mysql，需要安装 Mysql。JDK 安装直接找网上教程。
-
-##### HTTPS 证书
-
-参考 [Spring Boot Https 证书](Spring_Boot_Https_证书.md) 创建证书，本项目使用的是 `pckcs12`，密码使用的是 `123456`，部署项目时证书需要自己创建。
-
 #### 部署
 
 本项目使用的是 8080 和 443 端口，确保端口未被占用。可以配置文件中更改为别的端口。
@@ -58,15 +52,12 @@
 > 启动服务
 
 ```shell
-git clone https://github.com/yizhaorong/intranet_app_manager.git
+git clone 
 cd intranet_app_manager
 #docker方式启动
 sh deploy.sh docker
-#直接在终端启动(仅实现了Mac端，其它端未试)
-sh deploy.sh
 ```
 
-服务启动后即可输入你的 IP 或域名来访问。
 
 > 上传与安装
 
